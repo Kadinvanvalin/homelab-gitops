@@ -11,4 +11,4 @@ spec:
           - path: /
             pathType: Prefix
             backend:
-              service: { name: mini-endpoint, port: { number: 80 } }
+              service: { name: canary-endpoint, port: { number: 80 } }
