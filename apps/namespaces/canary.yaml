@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: canary
+  name: canary-applications
   annotations:
     argocd.argoproj.io/sync-wave: "0"
