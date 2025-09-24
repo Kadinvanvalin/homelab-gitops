@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: crccheck/hello-world
+          image: traefik/whoami
           ports: [{ containerPort: 8000 }]
 ---
 apiVersion: v1
