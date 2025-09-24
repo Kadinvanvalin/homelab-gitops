@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mini-endpoint
+  name: canary
 spec:
   replicas: 1
-  selector: { matchLabels: { app: mini-endpoint } }
+  selector: { matchLabels: { app: canary-endpoint } }
   template:
-    metadata: { labels: { app: mini-endpoint } }
+    metadata: { labels: { app: canary-endpoint } }
     spec:
       containers:
         - name: app
@@ -16,9 +16,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mini-endpoint
+  name: canary-endpoint
 spec:
-  selector: { app: mini-endpoint }
+  selector: { app: canary-endpoint }
   ports:
     - name: http
       port: 80
