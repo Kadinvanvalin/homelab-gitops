@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mini-endpoint
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: mini.local   # add this to /etc/hosts pointing to your Pi's IP
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: { name: mini-endpoint, port: { number: 80 } }
