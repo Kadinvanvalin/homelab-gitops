@@ -4,34 +4,41 @@ metadata:
   name: canary
 spec:
   replicas: 1
-  selector: { matchLabels: { app: canary } }
+  selector:
+    matchLabels:
+      app: canary
   template:
-    metadata: { labels: { app: canary } }
+    metadata:
+      labels:
+        app: canary
     spec:
       containers:
         - name: app
           image: traefik/whoami
-          ports: [{ containerPort: 8000 }]
-      readinessProbe:
-        httpGet:
-          path: /
-          port: 80
-        initialDelaySeconds: 2
-        periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 10
+          ports:
+            - name: http
+              containerPort: 80        # whoami listens on 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http               # refer to the named port
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: canary
 spec:
-  selector: { app: canary }
+  selector:
+    app: canary
   ports:
     - name: http
       port: 80
-      targetPort: 8000
+      targetPort: http                 # matches the container's named port
