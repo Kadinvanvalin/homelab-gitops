@@ -19,15 +19,11 @@ spec:
             - name: http
               containerPort: 8080
           readinessProbe:
-            httpGet:
-              path: /
-              port: http               # refer to the named port
+            httpGet: { path: /focus, port: http }
             initialDelaySeconds: 2
             periodSeconds: 5
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            httpGet: { path: /focus, port: http }
             initialDelaySeconds: 5
             periodSeconds: 10
 ---
