@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: focus-api
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: focus-api.local   # add this to /etc/hosts pointing to your Pi's IP
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: { name: focus-api, port: { number: 80 } }
