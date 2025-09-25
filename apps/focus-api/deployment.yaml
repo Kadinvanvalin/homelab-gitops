@@ -12,8 +12,17 @@ spec:
       labels:
         app: focus-api
     spec:
+      volumes:
+        - name: ssh
+          secret:
+            secretName: git-ssh-key
+            defaultMode: 0400
       containers:
         - name: app
+          volumeMounts:
+            - name: ssh
+              mountPath: /home/app/.ssh
+              readOnly: true
           image: ghcr.io/kadinvanvalin/focus-api:sha-3e7624c1cd6a131aa7cc49455f53782b0caeea7c@sha256:2a1b0f3ae7937ed184faf2a14bf97d349f6e6654ab841d5a8ce38f236df6c21d
           ports:
             - name: http
