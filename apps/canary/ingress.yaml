@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: mini.local   # add this to /etc/hosts pointing to your Pi's IP
+    - host: mini.k8s   # add this to /etc/hosts pointing to your Pi's IP
       http:
         paths:
           - path: /

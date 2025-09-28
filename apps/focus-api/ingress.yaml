@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: focus-api.local   # add this to /etc/hosts pointing to your Pi's IP
+    - host: focus-api.k8s   # add this to /etc/hosts pointing to your Pi's IP
       http:
         paths:
           - path: /

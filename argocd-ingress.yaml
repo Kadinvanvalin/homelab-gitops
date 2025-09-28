@@ -8,10 +8,10 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: [argocd.local]
+    - hosts: [argocd.k8s]
       secretName: argocd-tls
   rules:
-    - host: argocd.local
+    - host: argocd.k8s
       http:
         paths:
           - path: /

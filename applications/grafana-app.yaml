@@ -22,7 +22,7 @@ spec:
           annotations:
             traefik.ingress.kubernetes.io/router.entrypoints: web
           hosts:
-            - grafana.local
+            - grafana.k8s
           path: /
           pathType: Prefix
         datasources:
