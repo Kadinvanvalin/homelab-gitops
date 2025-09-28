@@ -23,6 +23,12 @@ spec:
             - name: ssh
               mountPath: /home/app/.ssh
               readOnly: true
+            - name: repo
+              mountPath: /app/notes
+            volumes:
+              - name: repo
+                persistentVolumeClaim:
+                  claimName: synostorage-nfs
           image: ghcr.io/kadinvanvalin/focus-api:sha-49f130e3b716f1c865e7c0318c62e012c774a41e
           ports:
             - name: http
