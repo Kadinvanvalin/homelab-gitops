@@ -19,7 +19,7 @@ spec:
             defaultMode: 0400
         - name: repo
           persistentVolumeClaim:
-            claimName: nfs-csi
+            claimName: focus-api
       containers:
         - name: app
           volumeMounts:
