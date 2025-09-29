@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tronbyt_server
+spec:
+  accessModes: [ReadWriteMany]
+  storageClassName: nfs-csi
+  resources:
+    requests:
+      storage: 5Gi
