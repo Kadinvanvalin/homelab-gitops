@@ -30,8 +30,6 @@ spec:
               mountPath: /app/users
             - name: data
               mountPath: /app/data
-            - name: tronbyt-server
-              mountPath: /app/tronbyt_server
           image: ghcr.io/tronbyt/server:latest
           ports:
             - name: http
