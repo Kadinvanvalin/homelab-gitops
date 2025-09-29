@@ -4,7 +4,7 @@ metadata:
   name: focus-api
 spec:
   accessModes: [ReadWriteMany]
-  storageClassName: synostorage-nfs
+  storageClassName: nfs-csi
   resources:
     requests:
       storage: 5Gi
