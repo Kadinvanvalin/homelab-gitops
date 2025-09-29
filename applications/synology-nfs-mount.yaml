@@ -1,0 +1,14 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name:  nfs-csi
+provisioner: nfs.csi.k8s.io
+parameters:
+  mountPermissions: '0755'
+  server: 10.10.10.10                # your Synology IP
+  share: /volume1/k8s-csi            # your exported NFS path
+mountOptions:
+  - nfsvers=4.1
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: Immediate
