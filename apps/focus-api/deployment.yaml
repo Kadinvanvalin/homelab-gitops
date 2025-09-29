@@ -19,7 +19,7 @@ spec:
             defaultMode: 0400
         - name: repo
           persistentVolumeClaim:
-            claimName: synostorage-nfs
+            claimName: nfs-csi
       containers:
         - name: app
           volumeMounts:
