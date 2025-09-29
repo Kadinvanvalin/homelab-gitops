@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: prometheus-operator-crds
   namespace: argocd
+  project: monitoring
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
