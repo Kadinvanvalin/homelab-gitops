@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: storage-nfs-csi
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+    chart: csi-driver-nfs
+    targetRevision: v4.6.0
+    helm:
+      releaseName: csi-driver-nfs
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: synostorage-nfs
+provisioner: nfs.csi.k8s.io
+parameters:
+  protocol: "nfs"
+  dsm: "10.10.10.10"
+  location: '/volume1/k8s-csi'
+  mountPermissions: '0755'
+  server: 10.10.10.10                # your Synology IP
+  share: /volume1/k8s-csi            # your exported NFS path
+mountOptions:
+  - nfsvers=4.1
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: Immediate
+
