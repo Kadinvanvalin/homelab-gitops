@@ -27,7 +27,6 @@ metadata:
   name:  nfs-csi
 provisioner: nfs.csi.k8s.io
 parameters:
-  location: '/volume1/k8s-csi'
   mountPermissions: '0755'
   server: 10.10.10.10                # your Synology IP
   share: /volume1/k8s-csi            # your exported NFS path
