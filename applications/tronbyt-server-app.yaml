@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tron
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL:  https://github.com/Kadinvanvalin/homelab-gitops.git
+    targetRevision: main
+    path: apps/trong
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tron
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }

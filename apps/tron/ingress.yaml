@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tron
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: tron-api.k8s
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: { name: tron-api, port: { number: 80 } }
