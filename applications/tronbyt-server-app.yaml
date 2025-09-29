@@ -9,7 +9,7 @@ spec:
   source:
     repoURL:  https://github.com/Kadinvanvalin/homelab-gitops.git
     targetRevision: main
-    path: apps/trong
+    path: apps/tron
   destination:
     server: https://kubernetes.default.svc
     namespace: tron
