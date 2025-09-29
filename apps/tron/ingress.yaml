@@ -11,4 +11,4 @@ spec:
           - path: /
             pathType: Prefix
             backend:
-              service: { name: tron-api, port: { number: 80 } }
+              service: { name: tron, port: { number: 80 } }
