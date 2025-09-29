@@ -27,8 +27,6 @@ metadata:
   name:  nfs-csi
 provisioner: nfs.csi.k8s.io
 parameters:
-  protocol: "nfs"
-  dsm: "10.10.10.10"
   location: '/volume1/k8s-csi'
   mountPermissions: '0755'
   server: 10.10.10.10                # your Synology IP
