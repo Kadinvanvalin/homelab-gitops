@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: focus-api
+spec:
+  accessModes: [ReadWriteMany]
+  storageClassName: synostorage-nfs
+  resources:
+    requests:
+      storage: 5Gi
