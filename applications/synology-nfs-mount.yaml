@@ -6,7 +6,7 @@ provisioner: nfs.csi.k8s.io
 parameters:
   mountPermissions: '0755'
   server: 10.10.10.10                # your Synology IP
-  share: /k8s-csi            # your exported NFS path
+  share: /volume1/k8s-csi            # your exported NFS path
 mountOptions:
   - nfsvers=4.1
 reclaimPolicy: Delete
