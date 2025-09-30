@@ -28,7 +28,7 @@ spec:
               readOnly: true
             - name: repo
               mountPath: /app/notes
-          image: ghcr.io/kadinvanvalin/focus-api:sha-49f130e3b716f1c865e7c0318c62e012c774a41e
+          image: ghcr.io/kadinvanvalin/focus-api:sha-f5801b66f7b3baa37c7ac74d37f9e79d3f524c5a
           ports:
             - name: http
               containerPort: 8080
