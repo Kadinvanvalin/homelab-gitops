@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: focus-api
+  name: notes-volume
   labels: { app: focus-api }
 spec:
   capacity: { storage: 50Gi }
@@ -15,12 +15,12 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: focus-api
+  name: claim-notes-volume
 spec:
   accessModes: [ ReadWriteMany ]
   storageClassName: ""                # don't use dynamic provisioning
   selector:
-    matchLabels: { app: notes }
+    matchLabels: { app: focus-api }
   resources:
     requests:
       storage: 5Gi
