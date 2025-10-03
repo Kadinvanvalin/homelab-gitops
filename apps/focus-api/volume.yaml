@@ -10,7 +10,7 @@ spec:
   mountOptions: [nfsvers=4.1]
   nfs:
     server: 10.10.10.10
-    path: /volume1/k8s-persistent-volume/notes
+    path: /volume1/k8s-persistent-volume
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
