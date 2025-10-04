@@ -20,7 +20,9 @@ spec:
             defaultMode: 0400
         - name: repo
           persistentVolumeClaim:
-            claimName: notes-volume
+            claimName: claim-notes-volume
+            mountPath: /scrub
+            subpath???
       containers:
         - name: app
           volumeMounts:
