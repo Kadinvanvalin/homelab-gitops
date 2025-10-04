@@ -20,7 +20,7 @@ spec:
             defaultMode: 0400
         - name: repo
           persistentVolumeClaim:
-            claimName: claim-notes-volume
+            claimName: nfs-csi-retain-class
       containers:
         - name: app
           volumeMounts:
