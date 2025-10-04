@@ -8,6 +8,4 @@ spec:
     requests:
       storage: 5Gi
   storageClassName: ""           # don't trigger dynamic provisioning
-  selector:
-    matchLabels:
-      app: notes                 # binds to pv-notes
+  volumeName: pv-notes
