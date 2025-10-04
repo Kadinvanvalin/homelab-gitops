@@ -20,7 +20,7 @@ spec:
             defaultMode: 0400
         - name: repo
           persistentVolumeClaim:
-            claimName: nfs-csi-retain-class
+            claimName: pvc-notes      # <-- PVC name
       containers:
         - name: app
           volumeMounts:
