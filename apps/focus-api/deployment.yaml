@@ -20,7 +20,7 @@ spec:
             defaultMode: 0400
         - name: repo
           persistentVolumeClaim:
-            claimName: claim-notes-volume
+            claimName: notes-volume
       containers:
         - name: app
           volumeMounts:
@@ -29,7 +29,6 @@ spec:
               readOnly: true
             - name: repo
               mountPath: /app/notes
-              subPath: notes        # mounts only users/
           image: ghcr.io/kadinvanvalin/focus-api:sha-1e059abf29e53d4c2ab546dbdf801561a16e5791
           ports:
             - name: http

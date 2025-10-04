@@ -10,17 +10,17 @@ spec:
   mountOptions: [nfsvers=4.1]
   nfs:
     server: 10.10.10.10
-    path: /volume1/k8s-persistent-volume
+    path: /volume1/k8s-persistent-volume/notes
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: claim-notes-volume
-spec:
-  accessModes: [ ReadWriteMany ]
-  storageClassName: ""                # don't use dynamic provisioning
-  selector:
-    matchLabels: { app: focus-api }
-  resources:
-    requests:
-      storage: 5Gi
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: claim-notes-volume
+#spec:
+#  accessModes: [ ReadWriteMany ]
+#  storageClassName: ""                # don't use dynamic provisioning
+#  selector:
+#    matchLabels: { app: focus-api }
+#  resources:
+#    requests:
+#      storage: 5Gi
