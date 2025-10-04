@@ -12,4 +12,17 @@ spec:
   nfs:
     server: 10.10.10.10
     path: /volume1/k8s-persistent-volume/notes
-
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: claim-notes-volume
+spec:
+  accessModes: [ ReadWriteMany ]
+  storageClassName: "notes-volume"                # don't use dynamic provisioning
+  claimRef:
+    name: notes-volume
+    namespace: focus-api
+  resources:
+    requests:
+      storage: 5Gi
