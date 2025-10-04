@@ -13,17 +13,17 @@ reclaimPolicy: Delete
 allowVolumeExpansion: true
 volumeBindingMode: Immediate
 ---
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
+apiVersion: v1
+kind: PersistentVolume
 metadata:
   name: nfs-csi-retain
 provisioner: nfs.csi.k8s.io
-parameters:
-  mountPermissions: '0755'
-  server: 10.10.10.10                # your Synology IP
-  share: /volume1/k8s-persistent-volume
-reclaimPolicy: Retain
-volumeBindingMode: Immediate
-mountOptions:
-  - hard
-  - nfsvers=4.1
+spec:
+  capacity:
+    storage: 10Gi # Adjust as needed
+  accessModes:
+    - ReadWriteMany # Or ReadWriteOnce, ReadOnlyMany depending on your needs
+  persistentVolumeReclaimPolicy: Retain # Or Delete, Recycle
+  nfs:
+    path: /volume1/k8s-persistent-volume # The exported path on your NFS server
+    server:  10.10.10.10          # IP or hostname of your NFS server
