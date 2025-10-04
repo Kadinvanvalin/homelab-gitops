@@ -19,8 +19,8 @@ metadata:
   name: claim-notes-volume
 spec:
   accessModes: [ ReadWriteMany ]
-  storageClassName: ""                # don't use dynamic provisioning
-  volumeName: nfs-csi-retain
+  storageClassName: "nfs-csi-retain-class"                # don't use dynamic provisioning
+#  volumeName: nfs-csi-retain
   resources:
     requests:
       storage: 5Gi
