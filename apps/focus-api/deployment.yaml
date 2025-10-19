@@ -35,7 +35,6 @@ spec:
             - name: repo
               mountPath: /app/notes
           image: ghcr.io/kadinvanvalin/focus-api
-          newTag: "sha-2fca7a21f27e6e02d68bd655d1358cae1dfeccd6"
           ports:
             - name: http
               containerPort: 8080
