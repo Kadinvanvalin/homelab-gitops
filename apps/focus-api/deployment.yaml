@@ -2,11 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: focus-api
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: focus-api=ghcr.io/kadinvanvalin/focus-api
-    argocd-image-updater.argoproj.io/focus-api.update-strategy: latest
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/git-branch: main
 spec:
   replicas: 1
   revisionHistoryLimit: 2
@@ -34,7 +29,8 @@ spec:
               readOnly: true
             - name: repo
               mountPath: /app/notes
-          image: ghcr.io/kadinvanvalin/focus-api
+          image:
+            ghcr.io/kadinvanvalin/focus-api:sha-16eee2608a107deadf4a23ce0602b38cbf7cb0cf
           ports:
             - name: http
               containerPort: 8080
