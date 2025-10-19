@@ -3,9 +3,17 @@ kind: Deployment
 metadata:
   name: focus-api
   annotations:
-    argocd-image-updater.argoproj.io/image-list: focus-api=ghcr.io/kadinvanvalin/focus-api
-    argocd-image-updater.argoproj.io/focus-api.update-strategy: latest
-    argocd-image-updater.argoproj.io/write-back-method: git
+nnotations:
+  # Track this image (name on the left is arbitrary "alias")
+  argocd-image-updater.argoproj.io/image-list: focus-api=ghcr.io/kadinvanvalin/focus-api
+  # Strategy: treat "latest" as movable; updater will write a change to Git
+  argocd-image-updater.argoproj.io/focus-api.update-strategy: latest
+  # Allow tag "latest" explicitly (helps avoid semver filtering)
+  argocd-image-updater.argoproj.io/focus-api.allow-tags: latest
+  # If the tag name doesn't change, still update (e.g., write digest)
+  argocd-image-updater.argoproj.io/focus-api.force-update: "true"
+  # Write the update back to Git so ArgoCD sees a diff and syncs
+  argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   replicas: 1
   revisionHistoryLimit: 2
