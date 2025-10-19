@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: focus-api
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: focus-api=ghcr.io/kadinvanvalin/focus-api
+    argocd-image-updater.argoproj.io/focus-api.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   replicas: 1
   revisionHistoryLimit: 2
