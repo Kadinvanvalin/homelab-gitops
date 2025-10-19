@@ -3,11 +3,10 @@ kind: Deployment
 metadata:
   name: focus-api
   annotations:
-nnotations:
-  argocd-image-updater.argoproj.io/image-list: focus-api=ghcr.io/kadinvanvalin/focus-api
-  argocd-image-updater.argoproj.io/focus-api.update-strategy: digest
-  argocd-image-updater.argoproj.io/write-back-method: git
-  argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/image-list: focus-api=ghcr.io/kadinvanvalin/focus-api
+    argocd-image-updater.argoproj.io/focus-api.update-strategy: digest
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
 spec:
   replicas: 1
   revisionHistoryLimit: 2
