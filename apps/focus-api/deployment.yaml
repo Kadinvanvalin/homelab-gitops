@@ -4,16 +4,10 @@ metadata:
   name: focus-api
   annotations:
 nnotations:
-  # Track this image (name on the left is arbitrary "alias")
   argocd-image-updater.argoproj.io/image-list: focus-api=ghcr.io/kadinvanvalin/focus-api
-  # Strategy: treat "latest" as movable; updater will write a change to Git
-  argocd-image-updater.argoproj.io/focus-api.update-strategy: latest
-  # Allow tag "latest" explicitly (helps avoid semver filtering)
-  argocd-image-updater.argoproj.io/focus-api.allow-tags: latest
-  # If the tag name doesn't change, still update (e.g., write digest)
-  argocd-image-updater.argoproj.io/focus-api.force-update: "true"
-  # Write the update back to Git so ArgoCD sees a diff and syncs
+  argocd-image-updater.argoproj.io/focus-api.update-strategy: digest
   argocd-image-updater.argoproj.io/write-back-method: git
+  argocd-image-updater.argoproj.io/git-branch: main
 spec:
   replicas: 1
   revisionHistoryLimit: 2
@@ -41,8 +35,7 @@ spec:
               readOnly: true
             - name: repo
               mountPath: /app/notes
-          image: ghcr.io/kadinvanvalin/focus-api:latest
-          imagePullPolicy: Always
+          image: ghcr.io/kadinvanvalin/focus-api@sha256:<digest>
           ports:
             - name: http
               containerPort: 8080
