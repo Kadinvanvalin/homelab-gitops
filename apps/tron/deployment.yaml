@@ -14,10 +14,6 @@ spec:
         app: tron
     spec:
       volumes:
-        - name: ssh
-          secret:
-            secretName: git-ssh-key
-            defaultMode: 0400
         - name: users
           persistentVolumeClaim:
             claimName: users
@@ -36,11 +32,11 @@ spec:
             - name: http
               containerPort: 8000
           readinessProbe:
-            httpGet: { path: /, port: http }
+            httpGet: { path: /a6cf8d53/next, port: http } # trying to see if this helps with stability
             initialDelaySeconds: 2
             periodSeconds: 5
           livenessProbe:
-            httpGet: { path: /, port: http }
+            httpGet: { path: /a6cf8d53/next, port: http } # trying to see if this helps with stability
             initialDelaySeconds: 5
             periodSeconds: 10
 ---
