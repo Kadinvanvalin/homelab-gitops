@@ -27,7 +27,7 @@ spec:
               mountPath: /app/users
             - name: data
               mountPath: /app/data
-          image: ghcr.io/tronbyt/server:latest
+          image: ghcr.io/tronbyt/server:sha256-c390a26f21b1cab2a8081528c222b97cc8801dd8603be6388a84b1b793e5f270
           ports:
             - name: http
               containerPort: 8000
