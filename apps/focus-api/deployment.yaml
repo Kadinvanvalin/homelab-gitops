@@ -20,9 +20,6 @@ spec:
       containers:
         - name: app
           volumeMounts:
-            - name: ssh
-              mountPath: /home/app/.ssh
-              readOnly: true
             - name: repo
               mountPath: /app/notes
           image:
