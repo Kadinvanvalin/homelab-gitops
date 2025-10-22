@@ -23,7 +23,7 @@ spec:
             - name: repo
               mountPath: /app/notes
           image:
-            ghcr.io/kadinvanvalin/focus-api:sha-c01340cf8f72cf8b2712d2a88949c7573ee718b4470ec685de43f5b57645042f
+            ghcr.io/kadinvanvalin/focus-api:latest
           ports:
             - name: http
               containerPort: 8080
