@@ -11,17 +11,26 @@ spec:
     targetRevision: "*"
     helm:
       values: |
+        controllers:
+          main:
+            containers:
+              main:
+                env:
+                  DB_HOSTNAME: immich-postgres
+                  DB_USERNAME: immich
+                  DB_PASSWORD: immich
+                  DB_DATABASE_NAME: immich
+                  REDIS_HOSTNAME: immich-valkey
         immich:
           persistence:
             library:
               existingClaim: immich-library
-        postgresql:
-          enabled: true
-        redis:
+        valkey:
           enabled: true
         machine-learning:
           enabled: false
-
+        server:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
