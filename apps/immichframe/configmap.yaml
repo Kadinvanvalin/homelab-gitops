@@ -23,3 +23,5 @@ data:
       - ImmichServerUrl: http://immich-server.immich.svc.cluster.local:2283
         ApiKey: rRnNf0d89PKCgR6zePuaT5xGm7S56ymVYHseRtfsXE4
         ShowMemories: true
+        Albums:
+          - 6273df24-6194-46ea-95e0-b6e70e88f554
