@@ -1,0 +1,21 @@
+helm:
+  values: |
+    image:
+      tag: release
+    immich:
+      persistence:
+        library:
+          existingClaim: immich-library
+    server:
+      enabled: true
+    microservices:
+      enabled: true
+    machine-learning:
+      enabled: false
+    postgresql:
+      enabled: true
+      primary:
+        persistence:
+          size: 10Gi
+    redis:
+      enabled: true
