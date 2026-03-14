@@ -32,10 +32,6 @@ spec:
           enabled: false
         server:
           enabled: true
-          service:
-            main:
-              type: LoadBalancer
-              loadBalancerIP: 10.10.10.241
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
