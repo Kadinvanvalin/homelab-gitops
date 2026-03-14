@@ -26,8 +26,8 @@ spec:
               mountPath: /app/Config
       volumes:
         - name: config
-          secret:
-            secretName: immichframe-secret
+          configMap:
+            name: immichframe-settings
 ---
 apiVersion: v1
 kind: Service

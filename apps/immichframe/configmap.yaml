@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: immichframe-settings
+  namespace: immich
+data:
+  Settings.yaml: |
+    General:
+      RenewImagesDuration: 30
+      Interval: 45
+      TransitionDuration: 2
+      ShowClock: true
+      ClockFormat: 'hh:mm'
+      ShowProgressBar: true
+      ShowPhotoDate: true
+      ShowImageDesc: true
+      ShowPeopleDesc: true
+      ShowAlbumName: true
+      ShowImageLocation: true
+      ImageZoom: false
+      Layout: splitview
+    Accounts:
+      - ImmichServerUrl: http://immich-server.immich.svc.cluster.local:2283
+        ApiKey: rRnNf0d89PKCgR6zePuaT5xGm7S56ymVYHseRtfsXE4
+        ShowMemories: true
