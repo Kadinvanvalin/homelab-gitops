@@ -10,6 +10,7 @@ spec:
     chart: immich
     targetRevision: "*"
     helm:
+      releaseName: immich
       values: |
         controllers:
           main:
