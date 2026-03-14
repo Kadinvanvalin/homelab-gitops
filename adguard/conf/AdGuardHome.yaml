@@ -151,7 +151,7 @@ filtering:
   parental_block_host: family-block.dns.adguard.com
   safebrowsing_block_host: standard-block.dns.adguard.com
   rewrites:
-    - domain: immich.local
+    - domain: immich.home
       answer: 10.10.10.240
   safe_fs_patterns:
     - /opt/adguardhome/work/userfilters/*

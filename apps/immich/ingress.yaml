@@ -5,7 +5,7 @@ metadata:
   namespace: immich
 spec:
   rules:
-    - host: immich.local
+    - host: immich.home
       http:
         paths:
           - path: /
