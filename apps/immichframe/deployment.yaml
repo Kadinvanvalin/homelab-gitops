@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immichframe
+  namespace: immich
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immichframe
+  template:
+    metadata:
+      labels:
+        app: immichframe
+    spec:
+      containers:
+        - name: immichframe
+          image: ghcr.io/immichframe/immichframe:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: TZ
+              value: America/Chicago
+          volumeMounts:
+            - name: config
+              mountPath: /app/Config
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: immichframe-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: immichframe
+  namespace: immich
+spec:
+  selector:
+    app: immichframe
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
