@@ -21,18 +21,13 @@ spec:
           env:
             - name: TZ
               value: America/Chicago
-            - name: ApiKey
-              valueFrom:
-                secretKeyRef:
-                  name: immichframe-secret
-                  key: api-key
           volumeMounts:
             - name: config
               mountPath: /app/Config
       volumes:
         - name: config
-          configMap:
-            name: immichframe-settings
+          secret:
+            secretName: immichframe-secret
 ---
 apiVersion: v1
 kind: Service
