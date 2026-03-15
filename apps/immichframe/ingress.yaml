@@ -5,6 +5,7 @@ metadata:
   namespace: immich
   annotations:
     traefik.ingress.kubernetes.io/router.tls.certresolver: cloudflare
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 spec:
   rules:
     - host: immichframe.home.kadin.codes

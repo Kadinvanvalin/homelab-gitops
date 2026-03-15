@@ -11,7 +11,7 @@ spec:
       - "--certificatesresolvers.cloudflare.acme.email=kadin@kadin.codes"
       - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
     env:
-      - name: CF_API_TOKEN
+      - name: CF_DNS_API_TOKEN
         valueFrom:
           secretKeyRef:
             name: cloudflare-api-token
