@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: immich-ingress
   namespace: immich
+  annotations:
+    traefik.ingress.kubernetes.io/router.tls.certresolver: cloudflare
 spec:
   rules:
     - host: immich.home.kadin.codes
@@ -15,3 +17,6 @@ spec:
                 name: immich-server
                 port:
                   number: 2283
+  tls:
+    - hosts:
+        - immich.home.kadin.codes
