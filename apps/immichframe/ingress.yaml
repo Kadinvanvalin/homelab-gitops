@@ -5,7 +5,6 @@ metadata:
   namespace: immich
   annotations:
     traefik.ingress.kubernetes.io/router.tls.certresolver: cloudflare
-    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 spec:
   rules:
     - host: immichframe.home.kadin.codes
@@ -21,3 +20,23 @@ spec:
   tls:
     - hosts:
         - immichframe.home.kadin.codes
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: immichframe-ingress-http
+  namespace: immich
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+    - host: immichframe.home.kadin.codes
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: immichframe
+                port:
+                  number: 8080

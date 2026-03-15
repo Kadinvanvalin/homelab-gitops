@@ -9,19 +9,19 @@ data:
       RenewImagesDuration: 30
       Interval: 45
       TransitionDuration: 2
-      ShowClock: true
+      ShowClock: false
       ClockFormat: 'hh:mm'
-      ShowProgressBar: true
-      ShowPhotoDate: true
-      ShowImageDesc: true
+      ShowProgressBar: false
+      ShowPhotoDate: false
+      ShowImageDesc: false
       ShowPeopleDesc: true
-      ShowAlbumName: true
-      ShowImageLocation: true
+      ShowAlbumName: false
+      ShowImageLocation: false
       ImageZoom: false
       Layout: splitview
     Accounts:
       - ImmichServerUrl: http://immich-server.immich.svc.cluster.local:2283
         ApiKey: rRnNf0d89PKCgR6zePuaT5xGm7S56ymVYHseRtfsXE4
-        ShowMemories: true
+        ShowMemories: false
         Albums:
           - 6273df24-6194-46ea-95e0-b6e70e88f554
