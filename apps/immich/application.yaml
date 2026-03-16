@@ -32,6 +32,12 @@ spec:
           enabled: false
         server:
           enabled: true
+          controllers:
+            main:
+              containers:
+                main:
+                  env:
+                    IMMICH_IGNORE_MOUNT_CHECK_ERRORS: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
