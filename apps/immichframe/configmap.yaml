@@ -21,7 +21,5 @@ data:
       Layout: splitview
     Accounts:
       - ImmichServerUrl: http://immich-server.immich.svc.cluster.local:2283
-        ApiKey: rRnNf0d89PKCgR6zePuaT5xGm7S56ymVYHseRtfsXE4
+        ApiKey: UI8VDOW2lDMk73VP9qFa61x6hRLZByLlLQdmeIgONs
         ShowMemories: false
-        Albums:
-          - 6273df24-6194-46ea-95e0-b6e70e88f554
