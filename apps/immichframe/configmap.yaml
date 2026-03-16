@@ -20,6 +20,6 @@ data:
       ImageZoom: false
       Layout: splitview
     Accounts:
-      - ImmichServerUrl: http://immich-server.immich.svc.cluster.local:2283
+      - ImmichServerUrl: https://immich.home.kadin.codes
         ApiKey: UI8VDOW2lDMk73VP9qFa61x6hRLZByLlLQdmeIgONs
         ShowMemories: false
